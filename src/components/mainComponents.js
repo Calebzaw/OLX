@@ -2,6 +2,19 @@ import styled from "styled-components";
 
 export const Template = styled.div``;
 
-export const PageContainer = styled.div``;
+export const PageContainer = styled.div`
+    max-width: 1000px;
+    margin: auto;
+`;
 
-export const PageTittle = styled.div``;
+export const PageTittle = styled.h1`
+    font-size: 27px;
+`;
+
+export const ErrorMessage = styled.div`
+    margin: 10px 0px;
+    background-color: #FFCACA;
+    color: #000;
+    border: 2px solid #F00;
+    padding: 10px;
+`;
