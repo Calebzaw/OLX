@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { PageArea } from './styled'
 import { PageContainer, PageTittle, ErrorMessage } from '../../components/mainComponents'
 import useApi from '../../helpers/OlxAPI';
@@ -8,36 +8,71 @@ export default function Page(){
 
     const api = useApi();
 
+    const [name, setName] = useState('');
+    const [estado, setEstado] = useState('')
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [remember, setRemember] = useState(false);
+    const [confirm, setConfirm] = useState('');
     const [disabled, setDisabled] = useState(false);
     const [error, setError] = useState('');
+
+    const [stateList, setStateList] = useState([]);
+
+    useEffect(()=>{
+        const getStates = async () => {
+            const list = await api.getStates()
+            setStateList(list);
+        }
+        getStates();
+    },[]);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setDisabled(true);
 
-        const json = await api.login(email, password);
+        // const json = await api.login(email, password);
 
-        if(json.error){
-            setError(json.error)
-        }else{
-            doLogin(json.token, remember);
-            window.location.href = "/";
-        }
+        // if(json.error){
+        //     setError(json.error, remember)
+        // }else{
+        //     doLogin(json.token);
+        //     window.location.href = "/";
+        // }
 
         setDisabled(false);
     }
 
     return(
         <PageContainer>
-            <PageTittle>Login</PageTittle>
+            <PageTittle>Cadastro</PageTittle>
             <PageArea>
                 {error &&
                     <ErrorMessage>{error}</ErrorMessage>
                 }
                 <form onSubmit={handleSubmit}>
+                    <label className='area'>
+                        <div className="area-tittle">Nome Completo</div>
+                        <div className="area-input">
+                            <input
+                                type="text" 
+                                disabled={disabled}
+                                value={name}
+                                onChange={e=>setName(e.target.value)}
+                                required
+                            />
+                        </div>
+                    </label>
+                    <label className='area'>
+                        <div className="area-tittle">Estado</div>
+                        <div className="area-input">
+                            <select value={estado} onChange={(e)=>setEstado(e.target.value)} required>
+                                <option></option>
+                                {stateList.map((i, k) => 
+                                    <option key={k} value={i.id}>{i.name}</option>
+                                )}
+                            </select>
+                        </div>
+                    </label>
                     <label className='area'>
                         <div className="area-tittle">Email</div>
                         <div className="area-input">
@@ -63,20 +98,21 @@ export default function Page(){
                         </div>
                     </label>
                     <label className='area'>
-                        <div className="area-tittle">Lembrar Senha</div>
+                        <div className="area-tittle">Confirmar Senha</div>
                         <div className="area-input">
                             <input 
-                                type="checkbox" 
+                                type="password" 
                                 disabled={disabled}
-                                checked={remember}
-                                onChange={()=>setRemember(!remember)}
+                                value={confirm}
+                                onChange={e=>setConfirm(e.target.value)}
+                                required
                             />
                         </div>
                     </label>
                     <label className='area'>
                         <div className="area-tittle"></div>
                         <div className="area-input">
-                            <button disabled={disabled}>Fazer Login</button>
+                            <button disabled={disabled}>Fazer Cadastro</button>
                         </div>
                     </label>
                 </form>
