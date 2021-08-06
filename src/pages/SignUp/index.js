@@ -29,15 +29,22 @@ export default function Page(){
     const handleSubmit = async (e) => {
         e.preventDefault();
         setDisabled(true);
+        setError('');
 
-        // const json = await api.login(email, password);
+        if(password !== confirm){
+            setError("A senhas não são iguais")
+            setDisabled(false);
+            return;
+        }
 
-        // if(json.error){
-        //     setError(json.error, remember)
-        // }else{
-        //     doLogin(json.token);
-        //     window.location.href = "/";
-        // }
+        const json = await api.register(name, email, password, estado);
+
+        if(json.error){
+            setError(json.error)
+        }else{
+            doLogin(json.token);
+            window.location.href = "/";
+        }
 
         setDisabled(false);
     }
