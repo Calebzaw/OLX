@@ -33,7 +33,7 @@ export default function Header(){
                                     <button onClick={handleLogout}>Sair</button>
                                 </li>
                                 <li>
-                                    <Link to="/post-add" className="button">Poste um anúncio</Link>
+                                    <Link to="/post-ad" className="button">Poste um anúncio</Link>
                                 </li>
                             </>
                         }

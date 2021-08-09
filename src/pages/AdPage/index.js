@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
-import { PageArea, Fake } from './styled';
+import { PageArea, Fake, OthersArea, BreadCrumb } from './styled';
 import { useParams } from 'react-router-dom';
 import { PageContainer } from '../../components/mainComponents';
 import useApi from '../../helpers/OlxAPI';
+import Aditem from '../../components/partials/Aditem'
 
 export default function Page(){
 
@@ -36,6 +38,17 @@ export default function Page(){
 
     return(
         <PageContainer>
+            {adInfo.category &&
+                <BreadCrumb>
+                    Você está aqui:
+                    <Link to='/'>Home</Link>
+                    /
+                    <Link to={`/ads?state=${adInfo.stateName}`}>{adInfo.stateName}</Link>
+                    /
+                    <Link to={`/ads?state=${adInfo.stateName}&cat=${adInfo.category.slug}`}>{adInfo.category.name}</Link>
+                    / {adInfo.title}
+                </BreadCrumb>
+            }
             <PageArea>
                 <div className='leftSide'>
                     <div className='box'>
@@ -87,7 +100,6 @@ export default function Page(){
                         <>
                             <a href={`mailto:${adInfo.userInfo.email}`} className="contactSeller" target="_blank">Fale com o vendedor</a>
                             <div className='created-by box box-padding'>
-                                Criado por:
                                 <strong>{adInfo.userInfo.name}</strong>
                                 <small>E-mail: {adInfo.userInfo.email}</small>
                             </div>
@@ -95,6 +107,18 @@ export default function Page(){
                     }
                 </div>
             </PageArea>
+            <OthersArea>
+                {adInfo.others && 
+                    <>
+                        <h2>Outras Ofertas do Vendedor</h2>
+                        <div className='list'>
+                            {adInfo.others.map((i,k)=>
+                                <Aditem key={k} data={i}/>
+                            )}
+                        </div>
+                    </>
+                }
+            </OthersArea>
         </PageContainer>
     )
 }
