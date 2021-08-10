@@ -87,12 +87,12 @@ export const PageArea = styled.div`
             .pagItem {
                 height: 30px;
                 width: 30px;
-                border: 1px solid #000;
+                border: 1px solid #CCC;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 font-size: 14px;
-                margin-right: 5px;
+                margin-right: 0px;
                 cursor: pointer;
 
                 &:hover{
@@ -101,6 +101,40 @@ export const PageArea = styled.div`
                 &.active{
                     background-color: #CCC;
                 }
+            }
+        }
+    }
+
+    @media (max-width:600px){
+        flex-direction: column;
+
+        .leftSide{
+            width: auto;
+            margin: 10px;
+            
+            ul {
+                flex-wrap: wrap;
+                display: flex;
+            }
+
+            .categoryItem{
+                display: flex;
+                width: 50%;
+                margin-bottom: 10px;
+            
+                img{
+                    width: 45px;
+                    height: 45px;
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .rightSide{
+            margin: 10px;
+            
+            .list .aditem{
+                width: 50%;
             }
         }
     }

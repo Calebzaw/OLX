@@ -122,6 +122,13 @@ const OlxApi = {
         );
         return json;
     },
+
+    getMe: async () => {
+        const json = await apiFetchGet(
+            '/user/me'
+        );
+        return json;
+    },
 }
 
 export default () => OlxApi;

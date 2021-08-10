@@ -32,6 +32,7 @@ export const PageArea = styled.div`
                     border-radius: 3px;
                     outline: 0;
                     transition:all ease 0.4s;
+                    background-color: #FFF;
                 
                     &:focus{
                         border: 1px solid #333;
@@ -61,6 +62,28 @@ export const PageArea = styled.div`
 
                     &:hover{
                         background-color: #006FCE;
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 600px){
+        form {
+            .area {
+                flex-direction: column;
+            
+                .area-tittle{
+                    width: 100%;
+                    text-align: left;
+                    margin-bottom: 10px;
+                }
+                .area-input {
+                    width: 100%;
+                
+                    button {
+                        width: 100%;
+                        padding: 10px;
                     }
                 }
             }

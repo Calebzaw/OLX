@@ -32,7 +32,7 @@ export default function Page(){
     useEffect(()=>{
         const getRecentAds = async () => {
             const json = await api.getAds({
-                sort: 'desc',
+                sort: 'asc',
                 limit: 4
             });
             setAdList(json.ads)

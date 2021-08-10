@@ -4,7 +4,8 @@ export default function Footer(){
 
     return(
         <FooterArea>
-            Footer
+            Todos os direitos reservados <br/>
+            OLX Clone Zeppe (B7web)
         </FooterArea>
     );
 }
