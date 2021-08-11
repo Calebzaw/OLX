@@ -1,28 +1,25 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
-import { Slide } from 'react-slideshow-image';
+// import { Link } from 'react-router-dom';
+// import { Slide } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css';
 import { PageArea, Fake, OthersArea } from './styled';
-import { useParams } from 'react-router-dom';
 import { PageContainer } from '../../components/mainComponents';
 import useApi from '../../helpers/OlxAPI';
-import Aditem from '../../components/partials/Aditem'
+// import Aditem from '../../components/partials/Aditem'
 
 export default function Page(){
 
     const api = useApi();
-    const { id } = useParams()
-
     const [loading, setLoading] = useState(true)
     const [me, setMe] = useState({})
 
     useEffect(()=>{
-        const getAdInfo = async (id) => {
+        const getMe = async () => {
             const json = await api.getMe();
             setLoading(false)
             setMe(json)
         }
-        getAdInfo(id);
+        getMe();
     },[])
 
     // const formatDate = (date) => {
