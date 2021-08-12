@@ -19,6 +19,7 @@ export default function Page(){
             setStateList(slist)
         }
         getState();
+        // eslint-disable-next-line
     },[])
 
     useEffect(()=>{
@@ -27,6 +28,7 @@ export default function Page(){
             setCatList(clist)
         }
         getCat();
+        // eslint-disable-next-line
     },[])
 
     useEffect(()=>{
@@ -38,6 +40,7 @@ export default function Page(){
             setAdList(json.ads)
         }
         getRecentAds();
+        // eslint-disable-next-line
     },[])
 
     return(

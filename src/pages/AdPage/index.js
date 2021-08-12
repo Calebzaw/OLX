@@ -23,6 +23,7 @@ export default function Page(){
             setLoading(false)
         }
         getAdInfo(id);
+        // eslint-disable-next-line
     },[])
 
     const formatDate = (date) => {
@@ -98,7 +99,7 @@ export default function Page(){
                     {loading && <Fake height={50} />}
                     {adInfo.userInfo && 
                         <>
-                            <a href={`mailto:${adInfo.userInfo.email}`} className="contactSeller" target="_blank">Fale com o vendedor</a>
+                            <a href={`mailto:${adInfo.userInfo.email}`} className="contactSeller" target="_blank" rel="noreferrer">Fale com o vendedor</a>
                             <div className='created-by box box-padding'>
                                 <strong>{adInfo.userInfo.name}</strong>
                                 <small>E-mail: {adInfo.userInfo.email}</small>

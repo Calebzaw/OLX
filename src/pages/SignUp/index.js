@@ -24,6 +24,7 @@ export default function Page(){
             setStateList(list);
         }
         getStates();
+        // eslint-disable-next-line
     },[]);
 
     const handleSubmit = async (e) => {

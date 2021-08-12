@@ -53,13 +53,15 @@ export default function Page(){
     useEffect(()=>{
         if(adList.length > 0)
             setPageCount(Math.ceil( adsTotal / adList.length ))
-        else
+            else
             setPageCount(0)
+            // eslint-disable-next-line
     },[adsTotal])
 
     useEffect(()=>{
         setResultOpacity(0.3)
         getAdsList();
+        // eslint-disable-next-line
     },[currentPage])
 
     useEffect(()=>{
@@ -86,6 +88,7 @@ export default function Page(){
         timer = setTimeout(getAdsList, 1000)
         setCurrentPage(1)
         setResultOpacity(0.3)
+        // eslint-disable-next-line
     }, [q,cat,state])
 
     useEffect(()=>{
@@ -94,6 +97,7 @@ export default function Page(){
             setStateList(slist)
         }
         getState();
+        // eslint-disable-next-line
     },[])
 
     useEffect(()=>{
@@ -102,6 +106,7 @@ export default function Page(){
             setCatList(clist)
         }
         getCat();
+        // eslint-disable-next-line
     },[])
 
     let pagination = []
@@ -137,7 +142,7 @@ export default function Page(){
                             {catList.map((i,k) =>
                                 <li 
                                     key={k} value={i.name} 
-                                    className={cat==i.slug ? 'categoryItem active' : 'categoryItem'}
+                                    className={cat===i.slug ? 'categoryItem active' : 'categoryItem'}
                                     onClick={()=>setCat(i.slug)}
                                 >
                                     <img src={i.img} alt=""/>

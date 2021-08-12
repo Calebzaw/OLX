@@ -131,4 +131,4 @@ const OlxApi = {
     },
 }
 
-export default () => OlxApi;
+export default function api(){return (OlxApi)};

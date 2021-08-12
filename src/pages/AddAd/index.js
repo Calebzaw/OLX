@@ -28,6 +28,7 @@ export default function Page(){
             setCategories(cats)
         }
         getCategories()
+        // eslint-disable-next-line
     },[])
 
     const handleSubmit = async (e) => {
