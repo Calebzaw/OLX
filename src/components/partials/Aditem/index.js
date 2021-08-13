@@ -13,7 +13,7 @@ export default function Aditem(props){
     return(
         <>
             <Item className='aditem'>
-                <Link to={`/ad/${props.data.id}`}>
+                <Link to={`/ad/${props.data.id}`} onClick={() => window.location.href = `/ad/${props.data.id}`}>
                     <div className='itemImg'>
                         <img src={props.data.image} alt='' />
                     </div>
