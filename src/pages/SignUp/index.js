@@ -54,7 +54,7 @@ export default function Page(){
         <PageContainer>
             <PageTittle>Cadastro</PageTittle>
             <PageArea>
-                {error &&
+                {error > 0 &&
                     <ErrorMessage>{error}</ErrorMessage>
                 }
                 <form onSubmit={handleSubmit}>
@@ -76,7 +76,7 @@ export default function Page(){
                             <select value={estado} onChange={(e)=>setEstado(e.target.value)} required>
                                 <option></option>
                                 {stateList.map((i, k) => 
-                                    <option key={k} value={i.id}>{i.name}</option>
+                                    <option key={k} value={i._id}>{i.name}</option>
                                 )}
                             </select>
                         </div>

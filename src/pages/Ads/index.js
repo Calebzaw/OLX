@@ -172,7 +172,7 @@ export default function Page(){
 
                     <div className="pagination">
                         {pagination.map((i,k)=>
-                            <div onClick={()=>setCurrentPage(i)} className={i===currentPage?'pagItem active' : 'pagItem'}>
+                            <div key={k} onClick={()=>setCurrentPage(i)} className={i===currentPage?'pagItem active' : 'pagItem'}>
                                 {i}
                             </div>
                         )}

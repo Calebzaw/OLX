@@ -59,7 +59,7 @@ export default function Page(){
                         </form>
                     </div>
                     <div className="catList">
-                        {catList.map((i,k)=>
+                        {catList && catList.map((i,k)=>
                             <Link key={k} to={`/ads?cat=${i.slug}`} className="catItem">
                                 <img src={i.img} alt="" />
                                 <span>{i.name}</span>

@@ -27,6 +27,9 @@ export default function Header(){
                         {logged &&
                             <>
                                 <li>
+                                    <Link to="/account">Minha conta</Link>
+                                </li>
+                                <li>
                                     <button onClick={handleLogout}>Sair</button>
                                 </li>
                                 <li>
