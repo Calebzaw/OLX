@@ -53,9 +53,9 @@ export default function Page(){
     useEffect(()=>{
         if(adList.length > 0)
             setPageCount(Math.ceil( adsTotal / adList.length ))
-            else
+        else
             setPageCount(0)
-            // eslint-disable-next-line
+        // eslint-disable-next-line
     },[adsTotal])
 
     useEffect(()=>{
@@ -103,6 +103,7 @@ export default function Page(){
     useEffect(()=>{
         const getCat = async () => {
             const clist = await api.getCategories();
+            console.log(clist)
             setCatList(clist)
         }
         getCat();
@@ -133,7 +134,7 @@ export default function Page(){
                             
                                 <option></option>
                                 {stateList.map((i,k)=>
-                                    <option key={k} value={i.name}>{i.name}</option>
+                                    <option key={k} value={i.idstate}>{i.dsstate}</option>
                                 )}
                             </select>
 
@@ -141,12 +142,12 @@ export default function Page(){
                         <ul>
                             {catList.map((i,k) =>
                                 <li 
-                                    key={k} value={i.name} 
+                                    key={k} value={i.cat}
                                     className={cat===i.slug ? 'categoryItem active' : 'categoryItem'}
-                                    onClick={()=>setCat(i.slug)}
+                                    onClick={()=>setCat(i.idcat)}
                                 >
                                     <img src={i.img} alt=""/>
-                                    <span>{i.name}</span>
+                                    <span>{i.dscat}</span>
                                 </li>
                             )}
                         </ul>

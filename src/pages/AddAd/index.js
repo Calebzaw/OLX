@@ -115,7 +115,7 @@ export default function Page(){
                             >
                                 <option></option>
                                 {categories && categories.map(i=>
-                                    <option key={i._id} value={i._id}>{i.name}</option>
+                                    <option key={i.idcat} value={i.idcat}>{i.dscat}</option>
                                 )}
                             </select>
                         </div>

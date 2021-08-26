@@ -14,7 +14,7 @@ export default function Page(){
     const { id } = useParams()
 
     const [loading, setLoading] = useState(true)
-    const [adInfo, setAdInfo] = useState({});
+    const [adInfo, setAdInfo] = useState("");
 
     useEffect(()=>{
         const getAdInfo = async (id) => {
@@ -53,18 +53,18 @@ export default function Page(){
             <PageArea>
                 <div className='leftSide'>
                     <div className='box'>
-                        <div className='adImg'>
-                            {loading && <Fake height={300} />}
-                            {adInfo.images &&
-                                <Slide>
-                                    {adInfo.images.map((img,k)=>
-                                        (<div key={k} className='each-slide'>
-                                            <img src={img} alt=""/>
-                                        </div>)
-                                    )}
-                                </Slide>
-                            }
-                        </div>
+                        {adInfo.images && adInfo.images.length > 0 &&
+                            <div className='adImg'>
+                                {loading && <Fake height={300} />}
+                                    <Slide>
+                                        {adInfo.images.map(i=> 
+                                            <div key={i.url} className='each-slide'>
+                                                <img src={i.url} alt="..."/>
+                                            </div>
+                                        )}
+                                    </Slide>
+                            </div>
+                        }
                         <div className='adInfo'>
                             <div className='adName'>
                                 {loading && <Fake height={20} />}

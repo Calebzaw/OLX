@@ -89,14 +89,14 @@ const OlxApi = {
         const json = await apiFetchGet(
             '/states'
         );
-        return json.states;
+        return json;
     },
 
     getCategories: async () => {
         const json = await apiFetchGet(
             '/categories'
         );
-        return json.categories;
+        return json;
     },
 
     getAds: async (options) => {

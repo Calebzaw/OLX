@@ -32,6 +32,7 @@ export const PageArea = styled.div`
             width: 320px;
             height: 320px;
             margin-right: 20px;
+            display: block !important;
 
             .each-slide img {
                 display: flex;

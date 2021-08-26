@@ -52,7 +52,7 @@ export default function Page(){
                             <input type='text' name='q' placeholder='O que você procura?'/>
                             <select name='state'>
                                 {stateList.map((i,k)=>
-                                    <option value={i.name} key={k}>{i.name}</option>
+                                    <option value={i.dsstate} key={k}>{i.dsstate}</option>
                                 )}
                             </select>
                             <button>Pesquisar</button>
@@ -62,7 +62,7 @@ export default function Page(){
                         {catList && catList.map((i,k)=>
                             <Link key={k} to={`/ads?cat=${i.slug}`} className="catItem">
                                 <img src={i.img} alt="" />
-                                <span>{i.name}</span>
+                                <span>{i.dscat}</span>
                             </Link>
                         )}
                     </div>
