@@ -13,5 +13,3 @@ ReactDOM.render(
     </Provider>,
   document.getElementById('root')
 );
-
-// http://alunos.b7web.com.br:501

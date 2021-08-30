@@ -76,7 +76,7 @@ export default function Page(){
                             <select value={estado} onChange={(e)=>setEstado(e.target.value)} required>
                                 <option></option>
                                 {stateList.map((i, k) => 
-                                    <option key={k} value={i._id}>{i.name}</option>
+                                    <option key={k} value={i.idstate}>{i.dsstate}</option>
                                 )}
                             </select>
                         </div>

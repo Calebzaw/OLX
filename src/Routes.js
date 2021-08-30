@@ -8,7 +8,6 @@ import SignUp from './pages/SignUp'
 import AdPage from './pages/AdPage'
 import AddAd from './pages/AddAd'
 import Ads from './pages/Ads'
-// import Account from './pages/Account'
 
 export default function Routes(){
 
@@ -42,11 +41,7 @@ export default function Routes(){
             <RouteHandler private exact path="/post-ad">
                 <AddAd />
             </RouteHandler>
-{/* 
-            <RouteHandler private exact path="/account">
-                <Account />
-            </RouteHandler> */}
-
+            
             <RouteHandler>
                 <NotFound />
             </RouteHandler>
