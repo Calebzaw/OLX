@@ -31,7 +31,6 @@ export const PageArea = styled.div`
         .adImg {
             width: 320px;
             height: 320px;
-            margin-right: 20px;
             display: block !important;
 
             .each-slide img {
@@ -45,7 +44,7 @@ export const PageArea = styled.div`
 
         .adInfo{
             flex: 1;
-
+            margin-left: 20px;
             .adName {
                 margin-bottom: 20px;
 
